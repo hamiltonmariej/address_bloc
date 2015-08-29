@@ -17,4 +17,16 @@ class AddressBook
     end
     @entries.insert(index, Entry.new(name, phone, email))
   end
+
+  def remove_entry(name, phone, email)
+    @entries.each_with_index do |entry, index|
+      if name < entry.name && entry.phone && entry.email
+        puts index = true
+      else
+        break
+      end
+    end
+
+      @entries.reject!{|entry| index = true}
+    end
 end
