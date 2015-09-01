@@ -52,6 +52,19 @@ class MenuController
     end
   end
 
+    def entry_n_submenu
+      print "Entry number to view: "
+      selection = gets.chomp.to_i
+
+      if selection < @address_book.entries.count
+        puts @address_book.entries[selection]
+        puts "Press enter to return to the main menu"
+        gets.chomp
+        system "clear"
+      else
+        puts "#{selection} is not a valid input"
+        entry_n_submenu
+
     def view_all_entries
       @address_book.entries.each do |entry|
         system "clear"
@@ -105,23 +118,6 @@ class MenuController
         system "clear"
         puts "#{selection} is not a valid input"
         entries_submenu(entry)
-      end
-    end
-
-    def view_entry_submenu
-      puts "Enter the entry's number: "
-      selection = gets.chomp.to_i
-
-      @address_book.entries.each_with_index do |entry, index|
-        system "clear"
-        if selection == index
-        puts entry.to_s
-          view_entry_submenu(selection)
-        else
-          system "clear"
-          puts "#{selection}is not a valid entry number"
-          view_entry_submenu(selection)
-        end
       end
     end
   end
