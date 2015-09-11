@@ -26,5 +26,23 @@ class AddressBook
       row_hash = row.to_hash
       add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
     end
+
+    def binary_search(name)
+      lower = 0
+      upper = entries.length - 1
+      while lower <= upper
+        mid = (lower + upper) / 2
+        mid_name = entries[mid].name
+        if name == mid_name
+          return entries[mid]
+        elseif name < mid_name
+          upper = mid - 1
+        elseif name > mid_name
+          lower = mid + 1
+        end
+      end
+      
+      return nil
+    end
   end
 end
