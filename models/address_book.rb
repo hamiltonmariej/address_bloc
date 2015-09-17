@@ -17,6 +17,11 @@ class AddressBook
     end
     @entries.insert(index, Entry.new(name, phone, email))
   end
+  
+  def obliterate
+    @entries = []
+    puts "All entries have been obliterated!"
+  end
 
   def import_from_csv(file_name)
     csv_text = File.read(file_name)
