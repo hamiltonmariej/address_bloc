@@ -35,9 +35,9 @@ class AddressBook
         mid_name = entries[mid].name
         if name == mid_name
           return entries[mid]
-        elseif name < mid_name
+        elsif name < mid_name
           upper = mid - 1
-        elseif name > mid_name
+        elsif name > mid_name
           lower = mid + 1
         end
       end
